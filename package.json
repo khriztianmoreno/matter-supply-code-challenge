@@ -1,7 +1,8 @@
 {
   "name": "code-challenge-ms",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": "Cristian Moreno <khriztianmoreno@gmail.com>",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -12,5 +13,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-react-app": "^0.6.2",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "6.1.0"
   }
+
 }

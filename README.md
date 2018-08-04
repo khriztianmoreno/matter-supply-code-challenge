@@ -1,4 +1,4 @@
-# Challenge pxnw
+# Challenge Matter Supply
 
 > Technical challenge for [mattersupply](http://mattersupply.co/)
 

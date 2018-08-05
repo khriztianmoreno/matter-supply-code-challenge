@@ -26,7 +26,8 @@ const API_PATH_BASE = 'https://api.github.com';
  */
 export function fetchAll(user) {
   return (dispatch, getState) => {
-    const userDefault = getState().username;
+    const userDefault = getState().posts.username;
+
     dispatch({ type: FETCH_ALL_GIST });
 
     return axios.get(`${API_PATH_BASE}/users/${user || userDefault}/gists`)

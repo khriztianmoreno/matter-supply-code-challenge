@@ -14,8 +14,8 @@ import GistPage from './Gist';
  * @param {*} state The store state.
  */
 const mapStateToProps = state => ({
-  gist: state.gist,
-  comments: state.comments
+  gist: state.posts.gist,
+  comments: state.posts.comments
 });
 
 const mapDispatchToProps = {

@@ -14,7 +14,7 @@ import HomePage from './Home';
  * @param {*} state The store state.
  */
 const mapStateToProps = state => ({
-  gists: state.gists
+  gists: state.posts.gists
 });
 
 const mapDispatchToProps = {

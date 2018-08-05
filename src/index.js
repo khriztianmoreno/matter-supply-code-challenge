@@ -10,7 +10,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import reducer from './store/reducers/gist';
+import reducer from './store/reducers';
 
 
 const store = createStore(reducer,

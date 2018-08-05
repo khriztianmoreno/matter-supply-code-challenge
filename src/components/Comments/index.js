@@ -53,7 +53,7 @@ Comments.defaultProps = {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     created_at: PropTypes.string,
     body: PropTypes.string,
     user: PropTypes.shape({

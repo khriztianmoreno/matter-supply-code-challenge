@@ -5,7 +5,7 @@
 
 import { connect } from 'react-redux';
 
-import { fetchSimple } from '../../store/actions/gist';
+import { fetchSimple, fetchCommentsByPost } from '../../store/actions/gist';
 
 import GistPage from './Gist';
 
@@ -14,11 +14,13 @@ import GistPage from './Gist';
  * @param {*} state The store state.
  */
 const mapStateToProps = state => ({
-  gist: state.gist
+  gist: state.gist,
+  comments: state.comments
 });
 
 const mapDispatchToProps = {
   fetchSimple,
+  fetchComments: fetchCommentsByPost
 };
 
 const GistContainer = connect(mapStateToProps, mapDispatchToProps)(GistPage);

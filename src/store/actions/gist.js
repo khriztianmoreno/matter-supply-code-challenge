@@ -6,6 +6,9 @@
 import axios from 'axios';
 
 import {
+  FETCH_ALL_COMMENTS,
+  FETCH_ALL_COMMENTS_SUCCESS,
+  FETCH_ALL_COMMENTS_FAIL,
   FETCH_ALL_GIST,
   FETCH_ALL_GIST_SUCCESS,
   FETCH_ALL_GIST_FAIL,
@@ -33,7 +36,7 @@ export function fetchAll(user) {
         return status;
       })
       .catch(({ response }) => {
-        dispatch({ type: FETCH_ALL_GIST_FAIL, response });
+        dispatch({ type: FETCH_ALL_GIST_FAIL, payload: response });
 
         return response;
       });
@@ -55,7 +58,7 @@ export function fetchSimple(id) {
         return status;
       })
       .catch(({ response }) => {
-        dispatch({ type: FETCH_SPECIFIC_GIST_FAIL, response });
+        dispatch({ type: FETCH_SPECIFIC_GIST_FAIL, payload: response });
 
         return response;
       });
@@ -63,7 +66,29 @@ export function fetchSimple(id) {
 }
 
 /**
- *
+ * @description Get the comments of a specifi post
+ * @param {String} id Unique identifier of the public gist
+ */
+export function fetchCommentsByPost(id) {
+  return (dispatch) => {
+    dispatch({ type: FETCH_ALL_COMMENTS });
+
+    return axios.get(`${API_PATH_BASE}/gists/${id}/comments`)
+      .then(({ data, status }) => {
+        dispatch({ type: FETCH_ALL_COMMENTS_SUCCESS, payload: data });
+
+        return status;
+      })
+      .catch(({ response }) => {
+        dispatch({ type: FETCH_ALL_COMMENTS_FAIL, payload: response });
+
+        return response;
+      });
+  };
+}
+
+/**
+ * @description Set the user's name
  * @param {String} name Value for set
  */
 export function setUserName(name) {

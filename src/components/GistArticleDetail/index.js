@@ -4,10 +4,11 @@ import ReactMarkdown from 'react-markdown';
 
 import PostDate from '../PostDate';
 import Author from '../Author';
+import Comments from '../Comments';
 
 import './GistArticleDetail.css';
 
-const GistArticleDetail = ({ gist, content }) => (
+const GistArticleDetail = ({ gist, content, comments }) => (
   <div className="post blog-single-post">
     <article className="post post-large blog-single-post">
       <PostDate value={gist.created_at} />
@@ -32,11 +33,16 @@ const GistArticleDetail = ({ gist, content }) => (
           </span>
         </div>
         <Author author={gist.owner} />
-
+        <Comments comments={comments} />
       </div>
     </article>
   </div>
 );
+
+GistArticleDetail.defaultProps = {
+  comments: []
+};
+
 
 GistArticleDetail.propTypes = {
   gist: PropTypes.shape({
@@ -48,6 +54,15 @@ GistArticleDetail.propTypes = {
       html_url: PropTypes.string.isRequired
     })
   }).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    created_at: PropTypes.string,
+    body: PropTypes.string,
+    user: PropTypes.shape({
+      avatar_url: PropTypes.string,
+      login: PropTypes.string
+    })
+  })),
   content: PropTypes.string.isRequired
 };
 

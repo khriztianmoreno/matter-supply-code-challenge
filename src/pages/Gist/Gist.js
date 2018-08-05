@@ -18,9 +18,10 @@ class GistPage extends Component {
   }
 
   componentDidMount() {
-    const { fetchSimple, match } = this.props;
+    const { fetchSimple, fetchComments, match } = this.props;
 
     fetchSimple(match.params.id);
+    fetchComments(match.params.id);
   }
 
   static getDerivedStateFromProps(props) {
@@ -37,7 +38,7 @@ class GistPage extends Component {
   }
 
   render() {
-    const { gist } = this.props;
+    const { gist, comments } = this.props;
     const { content } = this.state;
 
     return (
@@ -45,7 +46,10 @@ class GistPage extends Component {
         <Row>
           <Col md={12}>
             <ErrorBoundary>
-              { gist && content && <GistArticleDetail gist={gist} content={content} /> }
+              {
+                gist && content
+                && <GistArticleDetail gist={gist} content={content} comments={comments} />
+              }
             </ErrorBoundary>
           </Col>
         </Row>
@@ -55,11 +59,13 @@ class GistPage extends Component {
 }
 
 GistPage.defaultProps = {
-  gist: {}
+  gist: {},
+  comments: []
 };
 
 GistPage.propTypes = {
   fetchSimple: PropTypes.func.isRequired,
+  fetchComments: PropTypes.func.isRequired,
   gist: PropTypes.shape({
     id: PropTypes.string,
     created_at: PropTypes.string,
@@ -69,6 +75,15 @@ GistPage.propTypes = {
       html_url: PropTypes.string
     })
   }),
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    created_at: PropTypes.string,
+    body: PropTypes.string,
+    user: PropTypes.shape({
+      avatar_url: PropTypes.string,
+      login: PropTypes.string
+    })
+  })),
   match: PropTypes.shape().isRequired
 };
 

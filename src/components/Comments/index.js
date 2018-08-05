@@ -18,7 +18,7 @@ const Comments = ({ comments }) => (
     <ul className="comments">
       {
         comments && comments.map(comment => (
-          <li key={comment.url}>
+          <li key={comment.id}>
             <div className="comment">
               <div className="img-thumbnail">
                 <img className="avatar" alt="Avatar" src={comment.user.avatar_url} />
@@ -48,7 +48,7 @@ const Comments = ({ comments }) => (
 );
 
 Comments.defaultProps = {
-  comments: {}
+  comments: []
 };
 
 Comments.propTypes = {

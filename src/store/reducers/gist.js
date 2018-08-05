@@ -5,6 +5,9 @@
 
 import {
   SET_USERNAME,
+  FETCH_ALL_COMMENTS,
+  FETCH_ALL_COMMENTS_SUCCESS,
+  FETCH_ALL_COMMENTS_FAIL,
   FETCH_ALL_GIST,
   FETCH_ALL_GIST_SUCCESS,
   FETCH_ALL_GIST_FAIL,
@@ -28,6 +31,27 @@ export default (state = initialState, action) => {
       return {
         ...state,
         username: action.payload
+      };
+    }
+    case FETCH_ALL_COMMENTS: {
+      return {
+        ...state,
+        fetch: true
+      };
+    }
+    case FETCH_ALL_COMMENTS_SUCCESS: {
+      return {
+        ...state,
+        comments: action.payload,
+        fetch: false,
+        error: false
+      };
+    }
+    case FETCH_ALL_COMMENTS_FAIL: {
+      return {
+        ...state,
+        fetch: false,
+        error: true
       };
     }
     case FETCH_ALL_GIST: {

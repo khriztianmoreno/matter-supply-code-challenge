@@ -1,0 +1,17 @@
+.search-form hr.taller {
+  margin: 50px 0;
+}
+
+.search-form .btn-primary {
+  background-color: #00d2b2;
+  border-color: #00d2b2;
+}
+.search-form .btn-primary:hover {
+  background-color: #3c8070;
+  border-color: #3c8070;
+}
+
+.search-form .form-control:focus {
+  border-color: #00d2b2;
+  box-shadow: none;
+}

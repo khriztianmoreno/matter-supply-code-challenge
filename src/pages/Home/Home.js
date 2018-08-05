@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
 
 import GistArticle from '../../components/GistArticle';
+import Search from '../../components/Search';
 
 import './Home.css';
 
@@ -21,15 +22,18 @@ class HomePage extends Component {
   render() {
     const { gists } = this.props;
     return (
-      <Container>
-        <Row className="main-container">
-          <Col md={12} className="blog-posts">
-            {
-              gists && gists.map(item => <GistArticle gist={item} key={item.id} />)
-            }
-          </Col>
-        </Row>
-      </Container>
+      <React.Fragment>
+        <Search />
+        <Container>
+          <Row className="main-container">
+            <Col md={12} className="blog-posts">
+              {
+                gists && gists.map(item => <GistArticle gist={item} key={item.id} />)
+              }
+            </Col>
+          </Row>
+        </Container>
+      </React.Fragment>
     );
   }
 }

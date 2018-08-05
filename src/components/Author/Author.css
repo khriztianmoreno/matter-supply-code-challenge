@@ -1,0 +1,20 @@
+.post-author {
+  margin: 15px 0 0 0;
+}
+.post-author img {
+  max-height: 80px;
+  max-width: 80px;
+}
+.post-author p {
+  font-size: 0.9em;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+.post-author p .name {
+  font-size: 1.1em;
+}
+.post-author .img-thumbnail {
+  display: inline-block;
+  margin-right: 20px;
+}

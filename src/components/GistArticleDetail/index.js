@@ -8,7 +8,12 @@ import Comments from '../Comments';
 
 import './GistArticleDetail.css';
 
-const GistArticleDetail = ({ gist, content, comments }) => (
+const GistArticleDetail = ({
+  gist,
+  content,
+  comments,
+  author
+}) => (
   <div className="post blog-single-post">
     <article className="post post-large blog-single-post">
       <PostDate value={gist.created_at} />
@@ -32,7 +37,7 @@ const GistArticleDetail = ({ gist, content, comments }) => (
             </a>
           </span>
         </div>
-        <Author author={gist.owner} />
+        <Author author={author} />
         <Comments comments={comments} />
       </div>
     </article>
@@ -40,6 +45,7 @@ const GistArticleDetail = ({ gist, content, comments }) => (
 );
 
 GistArticleDetail.defaultProps = {
+  author: {},
   comments: []
 };
 
@@ -63,6 +69,11 @@ GistArticleDetail.propTypes = {
       login: PropTypes.string
     })
   })),
+  author: PropTypes.shape({
+    id: PropTypes.number,
+    avatar_url: PropTypes.string,
+    name: PropTypes.string,
+  }),
   content: PropTypes.string.isRequired
 };
 

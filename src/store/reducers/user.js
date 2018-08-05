@@ -5,16 +5,11 @@
 
 import {
   SET_USERNAME,
-  FETCH_ALL_COMMENTS,
-  FETCH_ALL_COMMENTS_SUCCESS,
-  FETCH_ALL_COMMENTS_FAIL,
-  FETCH_ALL_GIST,
-  FETCH_ALL_GIST_SUCCESS,
-  FETCH_ALL_GIST_FAIL,
-  FETCH_SPECIFIC_GIST,
-  FETCH_SPECIFIC_GIST_SUCCESS,
-  FETCH_SPECIFIC_GIST_FAIL
-} from '../types/gist';
+  CLEAR_PROFILE,
+  FETCH_USER_PROFILE,
+  FETCH_USER_PROFILE_SUCCESS,
+  FETCH_USER_PROFILE_FAIL
+} from '../types/user';
 
 const initialState = {
   profile: {},
@@ -32,63 +27,29 @@ export default (state = initialState, action) => {
         username: action.payload
       };
     }
-    case FETCH_ALL_COMMENTS: {
+    case CLEAR_PROFILE: {
+      return {
+        ...state,
+        profile: {}
+      };
+    }
+    case FETCH_USER_PROFILE: {
       return {
         ...state,
         fetch: true
       };
     }
-    case FETCH_ALL_COMMENTS_SUCCESS: {
+    case FETCH_USER_PROFILE_SUCCESS: {
+      console.log(action.payload);
       return {
         ...state,
-        comments: action.payload,
+        profile: action.payload,
+        username: action.payload.login,
         fetch: false,
         error: false
       };
     }
-    case FETCH_ALL_COMMENTS_FAIL: {
-      return {
-        ...state,
-        fetch: false,
-        error: true
-      };
-    }
-    case FETCH_ALL_GIST: {
-      return {
-        ...state,
-        fetch: true
-      };
-    }
-    case FETCH_ALL_GIST_SUCCESS: {
-      return {
-        ...state,
-        gists: action.payload,
-        fetch: false,
-        error: false
-      };
-    }
-    case FETCH_ALL_GIST_FAIL: {
-      return {
-        ...state,
-        fetch: false,
-        error: true
-      };
-    }
-    case FETCH_SPECIFIC_GIST: {
-      return {
-        ...state,
-        fetch: true
-      };
-    }
-    case FETCH_SPECIFIC_GIST_SUCCESS: {
-      return {
-        ...state,
-        gist: action.payload,
-        fetch: false,
-        error: false
-      };
-    }
-    case FETCH_SPECIFIC_GIST_FAIL: {
+    case FETCH_USER_PROFILE_FAIL: {
       return {
         ...state,
         fetch: false,

@@ -18,27 +18,41 @@ class GistPage extends Component {
   }
 
   componentDidMount() {
-    const { fetchSimple, fetchComments, match } = this.props;
+    const {
+      fetchSimple,
+      fetchComments,
+      match
+    } = this.props;
 
     fetchSimple(match.params.id);
     fetchComments(match.params.id);
   }
 
-  static getDerivedStateFromProps(props) {
-    const { gist } = props;
+  componentWillUnmount() {
+    const { clearProfile } = this.props;
+    clearProfile();
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const { gist, fetchProfile, profile } = props;
 
     if (gist && gist.files) {
       const key = Object.keys(gist.files).shift();
       const { content } = gist.files[key];
 
-      return { content };
+      if (!state.profile) {
+        fetchProfile(gist.owner.login);
+      }
+
+      return { content, profile };
     }
+
 
     return null;
   }
 
   render() {
-    const { gist, comments } = this.props;
+    const { gist, comments, profile } = this.props;
     const { content } = this.state;
 
     return (
@@ -47,8 +61,14 @@ class GistPage extends Component {
           <Col md={12}>
             <ErrorBoundary>
               {
-                gist && content
-                && <GistArticleDetail gist={gist} content={content} comments={comments} />
+                gist && content && (
+                  <GistArticleDetail
+                    gist={gist}
+                    content={content}
+                    author={profile}
+                    comments={comments}
+                  />
+                )
               }
             </ErrorBoundary>
           </Col>
@@ -60,12 +80,14 @@ class GistPage extends Component {
 
 GistPage.defaultProps = {
   gist: {},
+  profile: {},
   comments: []
 };
 
 GistPage.propTypes = {
   fetchSimple: PropTypes.func.isRequired,
   fetchComments: PropTypes.func.isRequired,
+  clearProfile: PropTypes.func.isRequired,
   gist: PropTypes.shape({
     id: PropTypes.string,
     created_at: PropTypes.string,
@@ -74,6 +96,13 @@ GistPage.propTypes = {
     owner: PropTypes.shape({
       html_url: PropTypes.string
     })
+  }),
+  profile: PropTypes.shape({
+    id: PropTypes.number,
+    html_url: PropTypes.string,
+    avatar_url: PropTypes.string,
+    name: PropTypes.string,
+    bio: PropTypes.string,
   }),
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,

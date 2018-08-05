@@ -3,7 +3,6 @@
  * @author Cristian Moreno <khriztianmoreno@gmail.com>
  */
 
-export const SET_USERNAME = 'mattersupply/SET_USERNAME';
 export const FETCH_ALL_COMMENTS = 'mattersupply/FETCH_ALL_COMMENTS';
 export const FETCH_ALL_COMMENTS_SUCCESS = 'mattersupply/FETCH_ALL_COMMENTS_SUCCESS';
 export const FETCH_ALL_COMMENTS_FAIL = 'mattersupply/FETCH_ALL_COMMENTS_FAIL';

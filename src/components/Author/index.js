@@ -16,15 +16,12 @@ const Author = ({ author }) => (
         <p>
           <strong className="name">
             <a href={author.html_url} target="_blank" rel="noopener noreferrer">
-              { author.login }
+              { author.name }
             </a>
           </strong>
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida
-          pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec
-          metus. Mauris ultricies, justo eu convallis placerat,
-          felis enim ornare nisi, vitae mattis nulla ante id dui.
+          { author.bio }
         </p>
       </Col>
       <Col md={2}>
@@ -40,8 +37,11 @@ const Author = ({ author }) => (
 
 Author.propTypes = {
   author: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
-    login: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    html_url: PropTypes.string,
+    avatar_url: PropTypes.string,
+    name: PropTypes.string,
+    bio: PropTypes.string,
   }).isRequired,
 };
 

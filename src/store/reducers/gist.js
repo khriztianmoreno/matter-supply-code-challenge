@@ -4,7 +4,6 @@
  */
 
 import {
-  SET_USERNAME,
   FETCH_ALL_COMMENTS,
   FETCH_ALL_COMMENTS_SUCCESS,
   FETCH_ALL_COMMENTS_FAIL,
@@ -20,19 +19,12 @@ const initialState = {
   gists: [],
   gist: null,
   comments: [],
-  username: 'khriztianmoreno',
   error: false,
   fetch: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_USERNAME: {
-      return {
-        ...state,
-        username: action.payload
-      };
-    }
     case FETCH_ALL_COMMENTS: {
       return {
         ...state,
@@ -64,6 +56,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         gists: action.payload,
+        gist: null,
         fetch: false,
         error: false
       };

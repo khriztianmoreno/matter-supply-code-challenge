@@ -14,19 +14,18 @@ import {
   FETCH_ALL_GIST_FAIL,
   FETCH_SPECIFIC_GIST,
   FETCH_SPECIFIC_GIST_SUCCESS,
-  FETCH_SPECIFIC_GIST_FAIL,
-  SET_USERNAME
+  FETCH_SPECIFIC_GIST_FAIL
 } from '../types/gist';
 
 const API_PATH_BASE = 'https://api.github.com';
 
 /**
  * @description Get all the public gist of a given user
- * @param {String} userName Values to get the gist
+ * @param {String} user Values to get the gist
  */
 export function fetchAll(user) {
   return (dispatch, getState) => {
-    const userDefault = getState().posts.username;
+    const userDefault = getState().user.username;
 
     dispatch({ type: FETCH_ALL_GIST });
 
@@ -85,16 +84,5 @@ export function fetchCommentsByPost(id) {
 
         return response;
       });
-  };
-}
-
-/**
- * @description Set the user's name
- * @param {String} name Value for set
- */
-export function setUserName(name) {
-  return {
-    type: SET_USERNAME,
-    payload: name
   };
 }

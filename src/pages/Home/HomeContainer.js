@@ -5,7 +5,9 @@
 
 import { connect } from 'react-redux';
 
-import { fetchAll, setUserName } from '../../store/actions/gist';
+
+import { fetchAll } from '../../store/actions/gist';
+import { setUserName } from '../../store/actions/user';
 
 import HomePage from './Home';
 

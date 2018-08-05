@@ -1,0 +1,29 @@
+#footer {
+  font-size: 1.1em;
+  clear: both;
+}
+#footer .logo {
+  display: block;
+}
+#footer .logo.mb-xl {
+  margin-bottom: 12px;
+}
+.footer-copyright {
+  background-color: #444f60;
+  border-top: 5px solid #00d2b2;
+  margin-top: 40px;
+  padding: 30px 0 10px;
+}
+.footer-copyright p {
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-copyright a {
+  color: #98a9c3;
+}
+
+.footer-copyright a:hover {
+  color: #fcfcfc;
+}

@@ -1,7 +1,7 @@
 .page-header {
-  background-color: #35495f;
-  border-bottom: 5px solid #3c8070;
-  border-top: 5px solid #3c8070;
+  background-color: #444f60;
+  border-bottom: 5px solid #00d2b2;
+  border-top: 5px solid #00d2b2;
   margin: 0 0 35px 0;
   min-height: 50px;
   padding: 20px 0;
@@ -22,7 +22,7 @@
   right: 20px;
 }
 .page-header h2 {
-  border-bottom: 5px solid #3c8070;
+  border-bottom: 5px solid #00d2b2;
   color: #fff;
   display: inline-block;
   font-weight: 200;
@@ -124,9 +124,14 @@
   color: #fff;
   opacity: 0.7;
 }
-.page-header-custom-background .breadcrumb.breadcrumb-valign-mid a {
-  color: #fff;
+.page-header a {
+  color: #98a9c3;
 }
+
+.page-header a:hover {
+  color: #fcfcfc;
+}
+
 /* Page Header Custom - Create your Own */
 .page-header.custom-product {
   background-repeat: repeat;

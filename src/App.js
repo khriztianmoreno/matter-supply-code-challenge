@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const App = () => (
           component={Home}
         />
       </Switch>
+      <Footer />
     </React.Fragment>
   </BrowserRouter>
 );

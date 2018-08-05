@@ -19,7 +19,7 @@ const GistArticle = ({ gist }) => (
       </div>
       <div className="post-content">
         <h2>
-          <Link to={`/post/${gist.id}`}>
+          <Link to={`/${gist.id}`}>
             {gist.description}
           </Link>
         </h2>
@@ -43,7 +43,7 @@ const GistArticle = ({ gist }) => (
               &nbsp;comments
             </a>
           </span>
-          <Link to={`/post/${gist.id}`} className="btn btn-xs btn-primary pull-right">
+          <Link to={`/${gist.id}`} className="btn btn-xs btn-primary pull-right">
             Read more...
           </Link>
         </div>

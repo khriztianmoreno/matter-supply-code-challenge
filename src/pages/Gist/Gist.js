@@ -5,10 +5,9 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Container, Row, Col } from 'reactstrap';
 
 import GistArticleDetail from '../../components/GistArticleDetail';
-
-// import './Gist.css';
 
 class GistPage extends Component {
   constructor() {
@@ -41,9 +40,13 @@ class GistPage extends Component {
     const { content } = this.state;
 
     return (
-      <React.Fragment>
-        { gist && content && <GistArticleDetail gist={gist} content={content} /> }
-      </React.Fragment>
+      <Container>
+        <Row>
+          <Col md={12}>
+            { gist && content && <GistArticleDetail gist={gist} content={content} /> }
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

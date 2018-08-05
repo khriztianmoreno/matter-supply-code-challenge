@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 
 import PostDate from '../PostDate';
+import Author from '../Author';
 
 import './GistArticleDetail.css';
 
@@ -17,7 +18,7 @@ const GistArticleDetail = ({ gist, content }) => (
         <ReactMarkdown source={content} />
         <div className="post-meta">
           <span role="img" aria-label="Emoji">
-            👨🏼‍💻 Author
+            Author&nbsp;
             <a href={gist.owner.html_url} target="_blank" rel="noopener noreferrer">
               { gist.owner.login }
             </a>
@@ -26,11 +27,11 @@ const GistArticleDetail = ({ gist, content }) => (
             💬
             <a href={gist.comments_url} target="_blank" rel="noopener noreferrer">
               { gist.comments }
-              Comments
+              &nbsp;Comments
             </a>
           </span>
         </div>
-
+        <Author author={gist.owner} />
 
       </div>
     </article>

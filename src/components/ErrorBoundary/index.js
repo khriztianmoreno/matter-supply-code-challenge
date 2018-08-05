@@ -38,7 +38,7 @@ export default class ErrorBoundary extends Component {
     }
     return children;
   }
-};
+}
 
 ErrorBoundary.getDefaultProps = {
   children: null

@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
 
+import ErrorBoundary from '../../components/ErrorBoundary';
 import GistArticle from '../../components/GistArticle';
 import Search from '../../components/Search';
 
@@ -39,9 +40,11 @@ class HomePage extends Component {
         <Container>
           <Row className="main-container">
             <Col md={12} className="blog-posts">
-              {
-                gists && gists.map(item => <GistArticle gist={item} key={item.id} />)
-              }
+              <ErrorBoundary>
+                {
+                  gists && gists.map(item => <GistArticle gist={item} key={item.id} />)
+                }
+              </ErrorBoundary>
             </Col>
           </Row>
         </Container>

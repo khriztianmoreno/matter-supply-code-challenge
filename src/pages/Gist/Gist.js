@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
 
+import ErrorBoundary from '../../components/ErrorBoundary';
 import GistArticleDetail from '../../components/GistArticleDetail';
 
 class GistPage extends Component {
@@ -43,7 +44,9 @@ class GistPage extends Component {
       <Container>
         <Row>
           <Col md={12}>
-            { gist && content && <GistArticleDetail gist={gist} content={content} /> }
+            <ErrorBoundary>
+              { gist && content && <GistArticleDetail gist={gist} content={content} /> }
+            </ErrorBoundary>
           </Col>
         </Row>
       </Container>

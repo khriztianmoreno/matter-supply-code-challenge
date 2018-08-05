@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
     case FETCH_ALL_GIST_SUCCESS: {
       return {
         ...state,
-        gists: action.type,
+        gists: action.payload,
         fetch: false,
         error: false
       };

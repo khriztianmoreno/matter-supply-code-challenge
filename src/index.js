@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import GistStore from './store/reducers/gist';
+import reducer from './store/reducers/gist';
 
 
-/* eslint-disable */
-const store = createStore(
-  GistStore,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-/* eslint-enable */
+const store = createStore(reducer,
+  process.env.NODE_ENV !== 'production'
+    ? composeWithDevTools(applyMiddleware(thunk))
+    : compose(applyMiddleware(thunk)));
 
 const Root = () => (
   <Provider store={store}>

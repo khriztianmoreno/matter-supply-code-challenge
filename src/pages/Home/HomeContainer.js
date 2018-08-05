@@ -5,7 +5,7 @@
 
 import { connect } from 'react-redux';
 
-import { fetchAll } from '../../store/actions/gist';
+import { fetchAll, setUserName } from '../../store/actions/gist';
 
 import HomePage from './Home';
 
@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchAll,
+  setUserName
 };
 
 const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage);

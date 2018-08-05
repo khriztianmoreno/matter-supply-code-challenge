@@ -4,6 +4,7 @@
  */
 
 import {
+  SET_USERNAME,
   FETCH_ALL_GIST,
   FETCH_ALL_GIST_SUCCESS,
   FETCH_ALL_GIST_FAIL,
@@ -16,13 +17,19 @@ const initialState = {
   gists: [],
   gist: null,
   comments: [],
-  username: null,
+  username: 'khriztianmoreno',
   error: false,
   fetch: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case SET_USERNAME: {
+      return {
+        ...state,
+        username: action.payload
+      };
+    }
     case FETCH_ALL_GIST: {
       return {
         ...state,

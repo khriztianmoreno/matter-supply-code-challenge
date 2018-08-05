@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
 
 import PostDate from '../PostDate';
 
 import './GistArticleDetail.css';
 
-const GistArticleDetail = ({ gist }) => (
+const GistArticleDetail = ({ gist, content }) => (
   <div className="post blog-single-post">
     <article className="post post-large blog-single-post">
       <PostDate value={gist.created_at} />
@@ -13,7 +14,7 @@ const GistArticleDetail = ({ gist }) => (
         <h2>
           { gist.description }
         </h2>
-
+        <ReactMarkdown source={content} />
         <div className="post-meta">
           <span role="img" aria-label="Emoji">
             👨🏼‍💻 Author
@@ -41,11 +42,12 @@ GistArticleDetail.propTypes = {
     created_at: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     comments_url: PropTypes.string.isRequired,
-    comments: PropTypes.string.isRequired,
+    comments: PropTypes.number.isRequired,
     owner: PropTypes.shape({
       html_url: PropTypes.string.isRequired
     })
   }).isRequired,
+  content: PropTypes.string.isRequired
 };
 
 export default GistArticleDetail;

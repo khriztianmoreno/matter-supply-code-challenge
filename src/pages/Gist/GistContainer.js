@@ -1,25 +1,25 @@
 /**
- * SmartComponent for all gists
+ * SmartComponent for Specific gist
  * @author Cristian Moreno <khriztianmoreno@gmail.com>
  */
 
 import { connect } from 'react-redux';
 
-import { fetchAll } from '../../store/actions/gist';
+import { fetchSimple } from '../../store/actions/gist';
 
-import HomePage from './Home';
+import GistPage from './Gist';
 
 /**
  * @description simple object, which will be combined in the props of the component
  * @param {*} state The store state.
  */
 const mapStateToProps = state => ({
-  gists: state.gists
+  gist: state.gist
 });
 
 const mapDispatchToProps = {
-  fetchAll,
+  fetchSimple,
 };
 
-const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage);
-export default HomeContainer;
+const GistContainer = connect(mapStateToProps, mapDispatchToProps)(GistPage);
+export default GistContainer;

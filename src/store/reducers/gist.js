@@ -6,7 +6,10 @@
 import {
   FETCH_ALL_GIST,
   FETCH_ALL_GIST_SUCCESS,
-  FETCH_ALL_GIST_FAIL
+  FETCH_ALL_GIST_FAIL,
+  FETCH_SPECIFIC_GIST,
+  FETCH_SPECIFIC_GIST_SUCCESS,
+  FETCH_SPECIFIC_GIST_FAIL
 } from '../types/gist';
 
 const initialState = {
@@ -35,6 +38,27 @@ export default (state = initialState, action) => {
       };
     }
     case FETCH_ALL_GIST_FAIL: {
+      return {
+        ...state,
+        fetch: false,
+        error: true
+      };
+    }
+    case FETCH_SPECIFIC_GIST: {
+      return {
+        ...state,
+        fetch: true
+      };
+    }
+    case FETCH_SPECIFIC_GIST_SUCCESS: {
+      return {
+        ...state,
+        gist: action.payload,
+        fetch: false,
+        error: false
+      };
+    }
+    case FETCH_SPECIFIC_GIST_FAIL: {
       return {
         ...state,
         fetch: false,

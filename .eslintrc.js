@@ -19,6 +19,7 @@ module.exports = {
   ],
   "rules": {
     "comma-dangle": 0,
+    "import/no-named-as-default": 0,
     "react/jsx-uses-vars": 1,
     "react/display-name": 1,
     "no-unused-vars": "warn",

@@ -2,21 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import formatDate from '../../utils/date';
+import PostDate from '../PostDate';
 
 import './GistArticle.css';
 
 const GistArticle = ({ gist }) => (
   <article className="post post-large">
     <div v-if="gist">
-      <div className="post-date">
-        <span className="day">
-          { formatDate(gist.created_at, 'D') }
-        </span>
-        <span className="month">
-          { formatDate(gist.created_at, 'MMM') }
-        </span>
-      </div>
+      <PostDate value={gist.created_at} />
       <div className="post-content">
         <h2>
           <Link to={`/${gist.id}`}>

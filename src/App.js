@@ -1,20 +1,24 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Home from './pages/Home';
 
 import Header from './components/Header';
 
-import './App.css';
-
 const App = () => (
-  <div>
-    <Header />
-    <p className="App-intro">
-      To get started, edit
-      <code>
-        src/App.js
-      </code>
-      and save to reload.
-    </p>
-  </div>
+  <BrowserRouter>
+    <React.Fragment>
+      <Header />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={Home}
+        />
+      </Switch>
+    </React.Fragment>
+  </BrowserRouter>
 );
+
 
 export default App;

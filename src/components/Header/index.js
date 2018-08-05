@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 
 import './Header.css';
@@ -11,9 +11,9 @@ const Header = () => (
         <Col md={12}>
           <ul className="breadcrumb">
             <li>
-              <a href="/">
+              <Link to="/">
                 Home
-              </a>
+              </Link>
             </li>
           </ul>
         </Col>

@@ -57,5 +57,4 @@ GistArticle.propTypes = {
   }).isRequired,
 };
 
-
 export default GistArticle;

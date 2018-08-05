@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import formatDate from '../../utils/date';
+
 import './GistArticle.css';
 
 const GistArticle = ({ gist }) => (
@@ -9,10 +11,10 @@ const GistArticle = ({ gist }) => (
     <div v-if="gist">
       <div className="post-date">
         <span className="day">
-          { gist.created_at }
+          { formatDate(gist.created_at, 'D') }
         </span>
         <span className="month">
-          { gist.created_at }
+          { formatDate(gist.created_at, 'MMM') }
         </span>
       </div>
       <div className="post-content">
@@ -22,12 +24,14 @@ const GistArticle = ({ gist }) => (
           </Link>
         </h2>
         <p>
+          <span role="img" aria-label="Emoji">
+            📄
+          </span>
           {gist.description}
         </p>
         <div className="post-meta">
-          <span>
-            <i className="fa fa-user" />
-            By
+          <span role="img" aria-label="Emoji">
+            By&nbsp;👨🏼‍💻&nbsp;
             <a href={gist.owner.html_url} target="_blank" rel="noopener noreferrer">
               { gist.owner.login }
             </a>
@@ -36,7 +40,7 @@ const GistArticle = ({ gist }) => (
             <i className="fa fa-comments" />
             <a href={gist.comments_url} target="_blank" rel="noopener noreferrer" className="post-meta-link">
               { gist.comments }
-              comments
+              &nbsp;comments
             </a>
           </span>
           <Link to={`/post/${gist.id}`} className="btn btn-xs btn-primary pull-right">

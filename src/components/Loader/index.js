@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Loader = ({ isLoading }) => (
   <p className="d-flex justify-content-center">
-    {isLoading ? <img src="/img/loading.gif" alt="loading content" /> : null}
+    {isLoading && <img src="/img/loading.gif" alt="loading content" />}
   </p>
 );
 

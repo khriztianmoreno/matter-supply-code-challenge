@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const Message = ({ message }) => (
-  message
-    ? (
-      <p className="message">
-        {message}
-      </p>
-    )
-    : null
+  message && (
+    <p className="message">
+      {message}
+    </p>
+  )
 );
 
 Message.defaultProps = {

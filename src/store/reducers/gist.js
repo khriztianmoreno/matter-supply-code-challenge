@@ -3,93 +3,53 @@
  * @author Cristian Moreno <khriztianmoreno@gmail.com>
  */
 
+import { handleActions, combineActions } from 'redux-actions';
+
 import {
-  FETCH_ALL_COMMENTS,
-  FETCH_ALL_COMMENTS_SUCCESS,
-  FETCH_ALL_COMMENTS_FAIL,
+  SHOW_LOADER,
+  HIDE_LOADER,
   FETCH_ALL_GIST,
-  FETCH_ALL_GIST_SUCCESS,
-  FETCH_ALL_GIST_FAIL,
   FETCH_SPECIFIC_GIST,
-  FETCH_SPECIFIC_GIST_SUCCESS,
-  FETCH_SPECIFIC_GIST_FAIL
+  FETCH_ALL_COMMENTS
 } from '../types/gist';
 
 const initialState = {
   gists: [],
   gist: null,
-  comments: [],
-  error: false,
-  fetch: false
+  comments: []
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_ALL_COMMENTS: {
-      return {
-        ...state,
-        fetch: true
-      };
-    }
-    case FETCH_ALL_COMMENTS_SUCCESS: {
-      return {
-        ...state,
-        comments: action.payload,
-        fetch: false,
-        error: false
-      };
-    }
-    case FETCH_ALL_COMMENTS_FAIL: {
-      return {
-        ...state,
-        fetch: false,
-        error: true
-      };
-    }
-    case FETCH_ALL_GIST: {
-      return {
-        ...state,
-        fetch: true
-      };
-    }
-    case FETCH_ALL_GIST_SUCCESS: {
-      return {
+const reducer = handleActions({
+  [FETCH_ALL_GIST]: {
+    next: (state, action) => (
+      {
         ...state,
         gists: action.payload,
-        gist: null,
-        fetch: false,
-        error: false
-      };
-    }
-    case FETCH_ALL_GIST_FAIL: {
-      return {
+        gist: null
+      }
+    ),
+    throw: (state, action) => (
+      {
         ...state,
-        fetch: false,
-        error: true
-      };
+        message: action.payload.message
+      }
+    )
+  },
+  [FETCH_SPECIFIC_GIST]: (state, action) => (
+    {
+      ...state,
+      gist: action.payload,
     }
-    case FETCH_SPECIFIC_GIST: {
-      return {
-        ...state,
-        fetch: true
-      };
+  ),
+  [FETCH_ALL_COMMENTS]: (state, action) => (
+    {
+      ...state,
+      comments: action.payload,
     }
-    case FETCH_SPECIFIC_GIST_SUCCESS: {
-      return {
-        ...state,
-        gist: action.payload,
-        fetch: false,
-        error: false
-      };
-    }
-    case FETCH_SPECIFIC_GIST_FAIL: {
-      return {
-        ...state,
-        fetch: false,
-        error: true
-      };
-    }
-    default:
-      return state;
-  }
-};
+  ),
+  [combineActions(SHOW_LOADER, HIDE_LOADER)]: (state, action) => (
+    { ...state, isLoading: action.payload }
+  )
+}, initialState);
+
+export default reducer;

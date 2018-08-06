@@ -10,6 +10,8 @@ import { Container, Row, Col } from 'reactstrap';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import GistArticle from '../../components/GistArticle';
 import Search from '../../components/Search';
+import Loader from '../../components/Loader';
+import Message from '../../components/Message';
 
 import './Home.css';
 
@@ -40,9 +42,17 @@ class HomePage extends Component {
         <Container>
           <Row className="main-container">
             <Col md={12} className="blog-posts">
+              <Loader />
+              <Message />
               <ErrorBoundary>
                 {
-                  gists && gists.map(item => <GistArticle gist={item} key={item.id} />)
+                  gists && gists.length > 0
+                    ? gists.map(item => <GistArticle gist={item} key={item.id} />)
+                    : (
+                      <span>
+                        The user does not contain data
+                      </span>
+                    )
                 }
               </ErrorBoundary>
             </Col>

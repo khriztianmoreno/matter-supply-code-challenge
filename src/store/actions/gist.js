@@ -29,10 +29,15 @@ export const fetchAll = user => (dispatch, getState) => {
   const userName = user || getState().user.username;
   dispatch(showLoader());
 
-  getAllGist(userName).then(({ data }) => {
-    dispatch(loadGists(data));
-    dispatch(hideLoader());
-  });
+  getAllGist(userName)
+    .then(({ data }) => {
+      dispatch(loadGists(data));
+      dispatch(hideLoader());
+    })
+    .catch((error) => {
+      dispatch(loadGists(error));
+      dispatch(hideLoader());
+    });
 };
 
 

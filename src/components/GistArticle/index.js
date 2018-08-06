@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 import PostDate from '../PostDate';
 
-import './GistArticle.css';
-
 const GistArticle = ({ gist }) => (
   <article className="post post-large">
     <div v-if="gist">

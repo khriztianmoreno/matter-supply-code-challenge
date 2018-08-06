@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
 
-import './Search.css';
-
 class Search extends Component {
   constructor(props) {
     super(props);

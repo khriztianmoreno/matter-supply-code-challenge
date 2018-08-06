@@ -1,0 +1,28 @@
+/**
+ * Cristian Moreno <khriztianmoreno@gmail.com>
+ */
+
+ @import './components/Author/Author.scss';
+ @import './components/Comments/Comments.scss';
+ @import './components/Footer/Footer.scss';
+ @import './components/GistArticle/GistArticle.scss';
+ @import './components/GistArticleDetail/GistArticleDetail.scss';
+ @import './components/Header/Header.scss';
+ @import './components/PostDate/PostDate.scss';
+ @import './components/Search/Search.scss';
+
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 30vh;
+}
+
+

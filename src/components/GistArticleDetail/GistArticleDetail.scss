@@ -5,13 +5,13 @@ article.post-large .post-date {
 .post-meta {
   font-size: 0.9em;
   margin-bottom: 7px;
-}
-.post-meta > span {
-  display: inline-block;
-  padding-right: 8px;
-}
-.post-meta i {
-  margin-right: 3px;
+  > span {
+    display: inline-block;
+    padding-right: 8px;
+  }
+  i {
+    margin-right: 3px;
+  }
 }
 
 .single-post article {
@@ -27,13 +27,13 @@ article.blog-single-post .post-meta {
   border-top: 1px solid #DDD;
   margin: 15px 0 0 0;
   padding: 20px 0 15px 0;
-}
-.post-block h3 {
-  font-size: 1.8em;
-  font-weight: 200;
-  margin: 0 0 20px;
-  text-transform: none;
-}
-.post-block h3 i {
-  margin-right: 7px;
+  h3 {
+    font-size: 1.8em;
+    font-weight: 200;
+    margin: 0 0 20px;
+    text-transform: none;
+    i {
+      margin-right: 7px;
+    }
+  }
 }

@@ -6,8 +6,6 @@ import PostDate from '../PostDate';
 import Author from '../Author';
 import Comments from '../Comments';
 
-import './GistArticleDetail.css';
-
 const GistArticleDetail = ({
   gist,
   content,

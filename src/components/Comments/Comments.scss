@@ -1,0 +1,78 @@
+.post-comments {
+  margin-top: 45px;
+  ul.comments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      clear: both;
+      padding: 10px 0 0 115px;
+      img.avatar {
+        height: 80px;
+        width: 80px;
+      }
+      ul.reply {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .img-thumbnail {
+        margin-left: -115px;
+        position: absolute;
+      }
+      .comment {
+        margin-bottom: 10px;
+      }
+    }
+    .comment-arrow {
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid #F4F4F4;
+      border-top: 15px solid transparent;
+      height: 0;
+      left: -15px;
+      position: absolute;
+      top: 28px;
+      width: 0;
+    }
+    .comment-block {
+      background: #F4F4F4;
+      border-radius: 5px;
+      padding: 20px 20px 30px;
+      position: relative;
+      p {
+        font-size: 0.9em;
+        line-height: 21px;
+        margin: 0;
+        padding: 0;
+      }
+      .comment-by {
+        display: block;
+        font-size: 1em;
+        line-height: 21px;
+        margin: 0;
+        padding: 0 0 5px 0;
+      }
+      .date {
+        color: #999;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .post-comments ul.comments {
+    li {
+      border-left: 8px solid #DDDDDD;
+      clear: both;
+      padding: 0 0 0 10px;
+      .img-thumbnail {
+        display: none;
+      }
+    }
+    .comment-arrow {
+      display: none;
+    }
+  }
+}

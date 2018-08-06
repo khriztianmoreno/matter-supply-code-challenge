@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import formatDate from '../../utils/date';
 
-import './PostDate.css';
-
 const PostDate = ({ value }) => (
   <div className="post-date">
     <span className="day">

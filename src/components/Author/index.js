@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 
-import './Author.css';
-
 const Author = ({ author }) => (
   <div className="post-block post-author clearfix">
     <h3 className="heading-primary">

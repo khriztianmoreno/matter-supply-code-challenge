@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import formatDate from '../../utils/date';
 
-import './Comments.css';
-
 const Comments = ({ comments }) => (
   <div className="post-block post-comments clearfix">
     <h3 className="heading-primary">

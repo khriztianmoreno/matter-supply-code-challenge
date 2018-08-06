@@ -13,8 +13,6 @@ import Search from '../../components/Search';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 
-import './Home.css';
-
 class HomePage extends Component {
   constructor() {
     super();

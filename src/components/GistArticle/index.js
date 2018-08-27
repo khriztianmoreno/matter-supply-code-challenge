@@ -6,7 +6,7 @@ import PostDate from '../PostDate';
 
 const GistArticle = ({ gist }) => (
   <article className="post post-large">
-    <div v-if="gist">
+    <div>
       <PostDate value={gist.created_at} />
       <div className="post-content">
         <h2>

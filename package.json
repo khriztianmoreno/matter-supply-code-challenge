@@ -36,7 +36,7 @@
     "eslint-loader": "1.9.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.10.0",
+    "eslint-plugin-react": "7.14.3",
     "node-sass": "4.9.2"
   },
   "engines": {

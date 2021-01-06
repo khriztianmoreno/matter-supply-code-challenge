@@ -4,7 +4,7 @@
   "private": false,
   "author": "Cristian Moreno <khriztianmoreno@gmail.com>",
   "dependencies": {
-    "axios": "0.19.0",
+    "axios": "0.21.1",
     "bootstrap": "4.3.1",
     "moment": "2.24.0",
     "prop-types": "15.6.2",
